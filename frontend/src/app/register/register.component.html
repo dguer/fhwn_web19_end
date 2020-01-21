@@ -1,0 +1,33 @@
+<div class="padding" style="padding: 50px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Register</h1>
+        <form [formGroup]="FormGroup" (ngSubmit)="this.login()">
+          <div class="form-group col-md-6 offset-sm-3 text-center">
+            <label for="username"><b>Username</b></label>
+            <input type="text" class="form-control" placeholder="Enter Username" name="username" (focusout)="userCheck()">
+            <label id="errorText" *ngIf="!isUserValid">
+              Invalid Input
+            </label>
+          </div>
+          <div class="form-group col-md-6 offset-sm-3 text-center">
+            <label for="password"><b>Password</b></label>
+            <input type="password" class="form-control" placeholder="Enter Password"
+              name="password">
+              <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                <label id="errorText" *ngIf="!this.FormGroup.get('password').valid">
+                    Invalid Input
+                </label>
+            </div>
+          </div>
+          <div class="form-group col-md-6 offset-sm-3 text-center">
+            <button type="submit" class="btn btn-primary" [disabled]="!FormGroup.valid">Submit</button>
+            <a routerLink="/login" class="btn btn-link">Login</a>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
