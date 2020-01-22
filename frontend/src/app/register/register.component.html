@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12 text-center">
         <h1>Register</h1>
-        <form [formGroup]="FormGroup" (ngSubmit)="this.login()">
+        <form id="FormGroup" (ngSubmit)="this.login()">
           <div class="form-group col-md-6 offset-sm-3 text-center">
             <label for="username"><b>Username</b></label>
             <input type="text" class="form-control" placeholder="Enter Username" name="username" (focusout)="userCheck()">

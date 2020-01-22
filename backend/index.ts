@@ -13,14 +13,7 @@ export class Server {
     public scoreBoard:any = [];
     
     constructor() {
-        this.scoreBoard.push(
-            {
-                name:'test',
-                score:'10',               
-            }
 
-
-        )
 
         this.registeredUsers.push({username:'test',password:'test'});
 
@@ -33,8 +26,7 @@ export class Server {
         // add the processing of json payload
         this.app.use([bodyParser.json()])
 
-        // offer the angular page
-        this.app.use(express.static(path.join(__dirname, "/dist/frontend")));  // http://expressjs.com/en/starter/static-files.html
+        this.app.use(express.static(__dirname + '/dist/frontend'));
 
         
         // make a signin endpoint with
@@ -118,7 +110,7 @@ export class Server {
 
 
         // start the server on port 3000
-        this.app.listen(3000,'0.0.0.0', () => console.log('started at http://localhost:3000/'));
+        this.app.listen(3000, () => console.log('started at http://localhost:3000/'));
     }
 
     handleScore(name:string,score:string){

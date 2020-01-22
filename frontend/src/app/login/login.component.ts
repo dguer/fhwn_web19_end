@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   FormGroup: FormGroup;
   isUserValid = Boolean(true);
 
-  constructor(private http: HttpClient, private authenticationservice: AuthService,private router:Router) { }
+  constructor(private http: HttpClient, private authservice: AuthService,private router:Router) { }
 
   ngOnInit() {
     this.FormGroup = new FormGroup({

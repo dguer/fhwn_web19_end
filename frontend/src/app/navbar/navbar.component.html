@@ -7,9 +7,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link active" routerLink="/login">Ping Pong <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" routerLink="/game">Game</a>
-          <a class="nav-item nav-link" routerLink="/score">Scoreboard</a>
+          <a class="nav-item nav-link active" routerLink="/login" *ngIf = "!this.IsloggedIn()">Breakout <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" routerLink="/game" *ngIf = "!this.IsloggedIn()">Game</a>
+          <a class="nav-item nav-link" routerLink="/score" *ngIf = "!this.IsloggedIn()">Scoreboard</a>
         </div>
       </div>
     </nav>
