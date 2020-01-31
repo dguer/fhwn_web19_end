@@ -1,1 +1,19 @@
-<p>score works!</p>
+<h1>
+    ScoreBoard
+</h1>
+<table id="table" class="table table-dark">
+    <tr>
+        <th>#</th>
+        <th>Place</th>
+        <th>Name</th>
+        <th>Message</th>
+        <th>Score</th>
+    </tr>
+    <tr *ngFor="let scoreItem of scoreBoard;let i = index">
+        <td>{{i}}</td>
+        <td>{{scoreItem.place}}</td>
+        <td>{{scoreItem.name}}</td>
+        <td>{{scoreItem.message}}</td>
+        <td>{{scoreItem.score}}</td>
+    </tr>
+</table>
