@@ -51,7 +51,7 @@ export class Server {
         this.app.use([bodyParser.json()])
 
         // offer the angular page
-        this.app.use(express.static(path.join(__dirname, "/dist/Breakout")));  // http://expressjs.com/en/starter/static-files.html
+        this.app.use(express.static(path.join(__dirname, "../frontend/dist/Breakout")));  // http://expressjs.com/en/starter/static-files.html
         this.app.options('/signin',setpermission, (req, res) => {
             console.log(req.body.username + req.body.password);
             if (this.isCredentialPresent) {
