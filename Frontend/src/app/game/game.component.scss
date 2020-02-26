@@ -1,0 +1,50 @@
+canvas {
+    border-style: black;
+    border: solid;
+    background-color: black;
+    height: 50%;     
+    margin-left: auto;
+    margin-right: auto;
+}
+#over{
+position: absolute;
+}
+
+#content-desktop {display: block;}
+#content-mobile {display: none;}
+
+@media screen and (max-width: 768px) {
+
+#content-desktop {display: none;}
+#content-mobile {display: block;}
+// canvas {
+//     border-style: black;
+//     border: solid;
+//     background-color: black;
+//     height: 50%;  
+//     max-width: 70%; 
+//     margin-left: auto;
+//     margin-right: auto;
+// }
+
+}
+#sketch { 
+    width: 100px;
+    height:100px;
+    margin: 0px auto;
+    border: 1px solid red;
+
+
+         }
+         canvas {
+            padding: 0;
+            margin: auto;
+            display: block;
+            width: 800px;
+            height: 600px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }

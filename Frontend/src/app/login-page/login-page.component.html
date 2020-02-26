@@ -1,0 +1,31 @@
+<div class="login-container body">
+        <section class="login" id="login">
+          <header>
+            <h2 >BreakOut Game</h2>
+            <h4>Login</h4>
+          </header>
+          <form class="login-form"  [formGroup]="testFormGroup" (ngSubmit)="login()">
+            <input type="text" class="login-input" placeholder="User" required autofocus  (focusout)="inputUserFocusOut()" formControlName="user" />
+            <label id="errorText" *ngIf="!isUserValid">
+              Wrong username
+           </label>
+            <input type="password" class="login-input" placeholder="Password" formControlName="password" required/>
+            <div *ngIf="password.invalid && (password.dirty || password.touched)">
+              <label id="errorText" *ngIf="!this.testFormGroup.get('password').valid">
+                Wrong password
+              </label>
+            </div>
+            <div class="submit-container">
+              <button type="submit" class="login-button">SIGN IN</button>
+            </div>
+         
+              </form>
+              <div class="form-group">
+
+            </div>
+        </section>
+        <p>2020 - <a href="https://www.twitch.tv/ellibesh"> Designed by Dilber</a></p>
+       
+        
+      </div>
+      
