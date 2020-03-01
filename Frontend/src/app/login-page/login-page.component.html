@@ -6,13 +6,13 @@
           </header>
           <form class="login-form"  [formGroup]="testFormGroup" (ngSubmit)="login()">
             <input type="text" class="login-input" placeholder="User" required autofocus  (focusout)="inputUserFocusOut()" formControlName="user" />
-            <label id="errorText" *ngIf="!isUserValid">
-              Wrong username
+            <label id="errorText" *ngIf="!isUserValid" style="color: black">
+            
            </label>
             <input type="password" class="login-input" placeholder="Password" formControlName="password" required/>
             <div *ngIf="password.invalid && (password.dirty || password.touched)">
-              <label id="errorText" *ngIf="!this.testFormGroup.get('password').valid">
-                Wrong password
+              <label id="errorText" *ngIf="!this.testFormGroup.get('password').valid" style="color: black">
+              
               </label>
             </div>
             <div class="submit-container">

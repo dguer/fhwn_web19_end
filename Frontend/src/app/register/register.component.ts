@@ -19,12 +19,12 @@ export class RegisterComponent implements OnInit {
     this.testFormGroup = new FormGroup({
       'user': new FormControl(null, [
         Validators.required,
-        Validators.minLength(4),
+        Validators.minLength(1),
         Validators.pattern("^[A-Z]+.*")
       ]),
       'password': new FormControl(null, [
         Validators.required,
-        Validators.minLength(4)
+        Validators.minLength(3)
       ])    
     });
   }
@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
 
   login(): void {
     
-    this.http.post<any>('http://' + this.ip.IP + ':3001/register', {
+    this.http.post<any>('http://' + this.ip.IP + ':3000/register', {
       
       username: this.usernameValue,
       password: this.passwordValue
@@ -45,19 +45,18 @@ export class RegisterComponent implements OnInit {
     }).subscribe(
       x => {
          
-        console.log(x);
-        this.authenticationservice.Token = x.Token;
-        if(x=="LUL"){
-          
+        console.log(x.status);
+        if(x.status){
+          alert("Sign up successful, please proceed to login ");
+        }
+        else{
+          alert("User already exists");
         }
       },
       error => { console.error(error); });
   }
 
-  onConfigure()
-  {
-    alert("Registration completed!");
-  }
+ 
 
   inputUserFocusOut()
   {

@@ -16,11 +16,12 @@ import { DataService } from "../services/data.service";
 export class LoginPageComponent implements OnInit {
   testFormGroup: FormGroup;
   isUserValid = Boolean(true);
-  message:string;
+  message: string;
 
-  constructor(private http: HttpClient, private authenticationservice: AuthenticationserviceService,private ip:IpService,private router:Router, private data: DataService) { }
+  constructor(private http: HttpClient, private authenticationservice: AuthenticationserviceService, private ip: IpService, private router: Router, private data: DataService) { }
 
   ngOnInit() {
+    this.authenticationservice.Token = "";
     this.data.currentMessage.subscribe(message => this.message = message);
     this.testFormGroup = new FormGroup({
       'user': new FormControl(null, [
@@ -38,21 +39,29 @@ export class LoginPageComponent implements OnInit {
   get password() { return this.testFormGroup.get('password'); }
   get username() { return this.testFormGroup.get('user'); }
 
-  get usernameValue(){ return this.testFormGroup.get('user').value; }
+  get usernameValue() { return this.testFormGroup.get('user').value; }
   get passwordValue() { return this.testFormGroup.get('password').value; }
 
   login(): void {
-    this.http.post<any>('http://' + this.ip.IP + ':3001/signin', {
+    this.http.post<any>('http://' + this.ip.IP + ':3000/signin', {
       username: this.usernameValue,
       password: this.passwordValue
     }).subscribe(
       x => {
-        // console.log(x);
-        this.authenticationservice.Token = x.Token;
-        
-        this.data.changeMessage(this.usernameValue)
 
-        this.router.navigate(['game']);
+        if (x.Token == false) {
+          alert("Wrong username or password")
+
+        }
+
+        else {
+          this.authenticationservice.Token = x.Token;
+
+          this.data.changeMessage(this.usernameValue)
+
+          this.router.navigate(['game']);
+        }
+
       },
       error => { console.error(error); });
   }
@@ -79,11 +88,11 @@ export class LoginPageComponent implements OnInit {
 
 
 
-  
 
-  
 
-  
-   
-  
+
+
+
+
+
 

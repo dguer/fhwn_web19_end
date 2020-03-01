@@ -20,7 +20,7 @@ export class ScoreboardComponent implements OnInit {
     
     this.table = document.getElementById('table');
     console.log(this.authService.Token)
-    this.http.post<any>('http://' + this.ip.IP + ':3001/scoreboard', {
+    this.http.post<any>('http://' + this.ip.IP + ':3000/scoreboard', {
 
     }
     ).subscribe(
