@@ -19,12 +19,12 @@ export class RegisterComponent implements OnInit {
     this.testFormGroup = new FormGroup({
       'user': new FormControl(null, [
         Validators.required,
-        Validators.minLength(1),
+        Validators.minLength(4),
         Validators.pattern("^[A-Z]+.*")
       ]),
       'password': new FormControl(null, [
         Validators.required,
-        Validators.minLength(3)
+        Validators.minLength(4)
       ])    
     });
   }
@@ -46,6 +46,7 @@ export class RegisterComponent implements OnInit {
       x => {
          
         console.log(x);
+        this.authenticationservice.Token = x.Token;
         if(x=="LUL"){
           
         }
@@ -55,7 +56,7 @@ export class RegisterComponent implements OnInit {
 
   onConfigure()
   {
-    alert("Glückwunsch");
+    alert("Registration completed!");
   }
 
   inputUserFocusOut()
