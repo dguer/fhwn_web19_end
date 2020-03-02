@@ -27,7 +27,7 @@ export class Server {
             next();
         }
 
-        this.users.push({ username: 'bellie', password: 'esh123' });
+        this.users.push({ username: 'Dilber', password: 'dilber' });
 
         // initialize the express js app
         this.app = express();
