@@ -5,9 +5,6 @@
 -npm install
 -npm start
 
-## registration & login
--
-
 ## implements
 -insgesamt können 60 Punkte erreicht werden
 -ein Feuerball erscheint zufällig bis er zum Paddel zurückkehrt und durch alle Steine schlägt
